@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [ "./index.html", "./src/**/*.{js,ts,jsx,tsx}" ],
   theme: {
     extend: {
       colors: {
@@ -20,8 +20,8 @@ module.exports = {
         "mobile-home": "url('./assets/HomePageGraphic.png')",
       }),
       fontFamily: {
-        dmsans: ["DM Sans", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        dmsans: [ "DM Sans", "sans-serif" ],
+        montserrat: [ "Montserrat", "sans-serif" ],
       },
       content: {
         evolvetext: "url('./assets/EvolveText.png')",
