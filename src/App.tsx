@@ -8,10 +8,10 @@ import ContactUs from "@/scenes/contactUs";
 import Footer from "./scenes/footer";
 
 
-// import { useSelectedPage } from "./stores/useSelectedPage";
+
 
 function App() {
-  // const selectedPage = useSelectedPage((state) => state.selectedPage);
+
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home
   );
