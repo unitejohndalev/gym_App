@@ -7,6 +7,8 @@ import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 
+
+import { useMenuToggle } from "@/store/usePageStore";
 type Props = {
   isTopOfPage: boolean,
   selectedPage: SelectedPage;
@@ -17,7 +19,8 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+// *toggle menu zustand
+  const isMenuToggle = useMenuToggle();
 
   const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
 
@@ -65,7 +68,7 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }: Props) => {
             ) : (
               <button
                 className="rounded-full bg-secondary-500 p-2"
-                onClick={() => setIsMenuToggled((prev) => !prev)}>
+                onClick={isMenuToggle.setIsMenuToggled}>
                 <Bars3Icon className="h-6 w-6 text-white" />
               </button>
             )}
@@ -74,13 +77,13 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }: Props) => {
       </div>
 
       {/* MOBILE SIDEBAR MENU */}
-      {!isAboveMediumScreens && isMenuToggled && (
+      {!isAboveMediumScreens && isMenuToggle.menuToggled && (
         <div
           className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl
        ">
           {/* CLOSE ICON */}
           <div className="flex  justify-end p-12">
-            <button onClick={() => setIsMenuToggled((prev) => !prev)}>
+            <button onClick={isMenuToggle.setIsMenuToggled}>
               <XMarkIcon className="h-6 w-6 text-gray-400" />
             </button>
           </div>
